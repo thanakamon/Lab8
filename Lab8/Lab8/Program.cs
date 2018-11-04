@@ -1,31 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ConsoleAppArray
+namespace MultidimensionalArray
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string[] array1 = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-            string[] array2 = Array.FindAll(array1,
-              element => element.EndsWith("ber",
-              StringComparison.Ordinal));
-            string[] array3 = Array.FindAll(array1,
-              element => element.EndsWith("ly",
-              StringComparison.Ordinal));
-            string[] arrayC = new string[4];
-            Array.Copy(array2, arrayC, array2.Length);
-            for (int i = 0; i < arrayC.Length; i++)
+            int[,] multiplyTable = new int[12, 12];
+            multiplyTable[0, 0] = 2 * 1;
+            multiplyTable[1, 0] = 2 * 2;
+            multiplyTable[2, 0] = 2 * 3;
+            multiplyTable[3, 0] = 2 * 4;
+            multiplyTable[4, 0] = 2 * 5;
+            multiplyTable[5, 0] = 2 * 6;
+            multiplyTable[6, 0] = 2 * 7;
+            multiplyTable[7, 0] = 2 * 8;
+            multiplyTable[8, 0] = 2 * 9;
+            multiplyTable[9, 0] = 2 * 10;
+            multiplyTable[10, 0] = 2 * 11;
+            multiplyTable[11, 0] = 2 * 12;
+            for (int row = 0; row < multiplyTable.GetLength(0); row++)
             {
-                Console.WriteLine("{0}", arrayC[i]);
+                for (int col = 0; col < multiplyTable.GetLength(1); col++)
+                {
+                    Console.Write("{0,5}", multiplyTable[row, col]);
+                }
+                Console.WriteLine();
             }
-            string[] arraya = new string[1];
-            Array.Copy(array3, arraya, array3.Length);
-            for (int i = 0; i < arraya.Length; i++)
-            {
-                Console.WriteLine("{0}", arraya[i]);
-            }
-
+            Console.ReadLine();
         }
     }
 }
