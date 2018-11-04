@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace ConsoleAppArray
 {
@@ -7,9 +6,7 @@ namespace ConsoleAppArray
     {
         static void Main(string[] args)
         {
-         
-
-            string[] ct = new string[] {         "Afghanistan",
+            string[] array1 = {       "Afghanistan",
         "Albania",
         "Algeria",
         "American Samoa",
@@ -247,26 +244,26 @@ namespace ConsoleAppArray
         "Western Sahara",
         "Yemen",
         "Zambia",
-        "Zimbabwe"};
+        "Zimbabwe" };
+            string[] array2 = Array.FindAll(array1,
+              element => element.EndsWith("land",
+              StringComparison.Ordinal));
+            string[] array3 = Array.FindAll(array1,
+              element => element.EndsWith("stan",
+              StringComparison.Ordinal));
+            string[] arrayC = new string[13];
+            Array.Copy(array2, arrayC, array2.Length);
+            for (int i = 0; i < arrayC.Length; i++)
+            {
+                Console.WriteLine("{0}" ,arrayC[i]);
+            }
+            string[] arraya = new string[7];
+            Array.Copy(array3, arraya, array3.Length);
+            for (int i = 0; i < arraya.Length; i++)
+            {
+                Console.WriteLine("{0}", arraya[i]);
+            }
 
-          
-            var sortAscending = from Country in ct
-                                orderby Country
-                                select Country;
-            var sortDescending = from Country in ct
-                                 orderby Country descending
-                                 select Country;
-
-
-            Console.WriteLine("------String sort ascending----------");
-            foreach (string c in sortAscending)
-                Console.WriteLine(c);
-
-            Console.WriteLine("------String sort descending----------");
-            foreach (string c in sortDescending)
-                Console.WriteLine(c);
-          
-            Console.ReadLine();
         }
     }
 }
