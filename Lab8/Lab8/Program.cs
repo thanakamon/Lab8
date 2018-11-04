@@ -8,32 +8,22 @@ namespace DictionaryDemo
     {
         static void Main(string[] args)
         {
-            Dictionary<string, string> country = new Dictionary<string, string>();
-            country.Add("AF", "Afghanistan");
-            country.Add("AL", "Albania");
-            country.Add("AS", "American Samoa");
-            country.Add("AD", "Andorra");
-            country.Add("AM", "Armenia");
-            country.Add("AW", "Aruba");
-            country.Add("AU", "Australia");
-            country.Add("AT", "Austria");
-            country.Add("AZ", "Azerbaijan");
-            foreach (var item in country)
-            {
-                Console.WriteLine("{0,2} = {1}", item.Key, item.Value);
-            }
-            Console.WriteLine("Count of items = {0}", country.Count);
-            Console.WriteLine("\n** Direct access to value by key **");
-            country["AU"] = "AUSTRALIA";
-            Console.WriteLine("AU = " + country["AU"]);
+            Dictionary<string, string> dict1 = new Dictionary<string, string>();
+            dict1.Add("txt", "Notepad.exe");
+            dict1.Add("bmp", "paint.exe");
+            dict1.Add("rtf", "wordpad.exe");
+            dict1.Add("pdf", "acrobat.exe");
 
-            Console.WriteLine("\n** Remove by key **");
-            country.Remove("AU");
-            foreach (var item in country)
+            foreach (var item in dict1)
             {
-                Console.WriteLine("{0,2} = {1}", item.Key, item.Value);
+                Console.WriteLine(item);
             }
-            Console.WriteLine("Count of items = {0}", country.Count);
+
+            foreach (var item in dict1)
+            {
+                Console.WriteLine("key = {0}, value = {1}", item.Key, item.Value);
+            }
+
             Console.ReadLine();
         }
     }
