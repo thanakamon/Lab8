@@ -1,33 +1,50 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 
-namespace ArrayListDemo
+namespace QueueDemo
 {
     class Program
     {
         static void Main(string[] args)
         {
-            ArrayList list1 = new ArrayList();
-            list1.Add(10);
-            list1.Add(20);
-            list1.Add(30);
-            list1.Add(40);
-            for (int i = 0; i < list1.Count; i++)
+            Queue<int> q = new Queue<int>();
+            Console.WriteLine("-- enqueue 3 items -- ");
+            q.Enqueue(10);
+            q.Enqueue(20);
+            q.Enqueue(30);
+            Console.Write("Queue contains : ");
+            foreach (var item in q)
             {
-                Console.WriteLine(list1[i]);
+                Console.Write(item + " ");
             }
-           
+            Console.WriteLine(Environment.NewLine + "q.Count  = {0}", q.Count);
+            Console.WriteLine("q.Peek = {0}", q.Peek());
 
-            ArrayList list2 = new ArrayList(list1);
-            list2[1] = 55;
-            list2[2] = 66;
-            list2[3] = 77;
+            Console.WriteLine("-- enqueue more items -- ");
+            q.Enqueue(40);
+            q.Enqueue(50);
 
-            for (int i = 0; i < list2.Count; i++)
+            Console.Write("Queue contains : ");
+            foreach (var item in q)
             {
-                Console.WriteLine(list2[i]);
+                Console.Write(item + " ");
             }
+            Console.WriteLine(Environment.NewLine + "q.Count  = {0}", q.Count);
+            Console.WriteLine("q.Peek = {0}", q.Peek());
+
+            Console.WriteLine("-- dequeue -- ");
+            int i = q.Dequeue();
+            Console.WriteLine("i = {0}", i);
+
+            Console.Write("Queue contains : ");
+            foreach (var item in q)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine(Environment.NewLine + "q.Count  = {0}", q.Count);
+            Console.WriteLine("q.Peek = {0}", q.Peek());
             Console.ReadLine();
         }
     }
 }
+
