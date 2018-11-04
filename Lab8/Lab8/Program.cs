@@ -14,12 +14,12 @@ namespace ConsoleAppArray
               "July", "August", "September	", "October","November","December" };
 
           
-            var sortAscending = from country in m
-                                orderby country
-                                select country;
-            var sortDescending = from country in m
-                                 orderby country descending
-                                 select country;
+            var sortAscending = from Month in m
+                                orderby Month
+                                select Month;
+            var sortDescending = from Month in m
+                                 orderby Month descending
+                                 select Month;
 
 
             Console.WriteLine("------String sort ascending----------");
