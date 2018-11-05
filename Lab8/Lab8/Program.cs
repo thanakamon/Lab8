@@ -6,77 +6,66 @@ public class SamplesArrayList
     public static void Main()
     {
 
-        // Creates and initializes a new ArrayList.
-        ArrayList myAL = new ArrayList();
-        myAL.Add("The");
-        myAL.Add("quick");
-        myAL.Add("brown");
-        myAL.Add("fox");
-        myAL.Add("jumps");
+        // Creates and initializes the source ArrayList.
+        ArrayList mySourceList = new ArrayList();
+        mySourceList.Add("three");
+        mySourceList.Add("napping");
+        mySourceList.Add("cats");
+        mySourceList.Add("in");
+        mySourceList.Add("the");
+        mySourceList.Add("barn");
 
-        // Displays the count, capacity and values of the ArrayList.
-        Console.WriteLine("Initially,");
-        Console.WriteLine("   Count    : {0}", myAL.Count);
-        Console.WriteLine("   Capacity : {0}", myAL.Capacity);
-        Console.Write("   Values:");
-        PrintValues(myAL);
+        // Creates and initializes the one-dimensional target Array.
+        String[] myTargetArray = new String[15];
+        myTargetArray[0] = "The";
+        myTargetArray[1] = "quick";
+        myTargetArray[2] = "brown";
+        myTargetArray[3] = "fox";
+        myTargetArray[4] = "jumps";
+        myTargetArray[5] = "over";
+        myTargetArray[6] = "the";
+        myTargetArray[7] = "lazy";
+        myTargetArray[8] = "dog";
 
-        // Trim the ArrayList.
-        myAL.TrimToSize();
+        // Displays the values of the target Array.
+        Console.WriteLine("The target Array contains the following (before and after copying):");
+        PrintValues(myTargetArray, ' ');
 
-        // Displays the count, capacity and values of the ArrayList.
-        Console.WriteLine("After TrimToSize,");
-        Console.WriteLine("   Count    : {0}", myAL.Count);
-        Console.WriteLine("   Capacity : {0}", myAL.Capacity);
-        Console.Write("   Values:");
-        PrintValues(myAL);
+        // Copies the second element from the source ArrayList to the target Array starting at index 7.
+        mySourceList.CopyTo(1, myTargetArray, 7, 1);
 
-        // Clear the ArrayList.
-        myAL.Clear();
+        // Displays the values of the target Array.
+        PrintValues(myTargetArray, ' ');
 
-        // Displays the count, capacity and values of the ArrayList.
-        Console.WriteLine("After Clear,");
-        Console.WriteLine("   Count    : {0}", myAL.Count);
-        Console.WriteLine("   Capacity : {0}", myAL.Capacity);
-        Console.Write("   Values:");
-        PrintValues(myAL);
+        // Copies the entire source ArrayList to the target Array starting at index 6.
+        mySourceList.CopyTo(myTargetArray, 6);
 
-        // Trim the ArrayList again.
-        myAL.TrimToSize();
+        // Displays the values of the target Array.
+        PrintValues(myTargetArray, ' ');
 
-        // Displays the count, capacity and values of the ArrayList.
-        Console.WriteLine("After the second TrimToSize,");
-        Console.WriteLine("   Count    : {0}", myAL.Count);
-        Console.WriteLine("   Capacity : {0}", myAL.Capacity);
-        Console.Write("   Values:");
-        PrintValues(myAL);
+        // Copies the entire source ArrayList to the target Array starting at index 0.
+        mySourceList.CopyTo(myTargetArray);
+
+        // Displays the values of the target Array.
+        PrintValues(myTargetArray, ' ');
     }
 
-    public static void PrintValues(IEnumerable myList)
+    public static void PrintValues(String[] myArr, char mySeparator)
     {
-        foreach (Object obj in myList)
-            Console.Write("   {0}", obj);
+        for (int i = 0; i < myArr.Length; i++)
+            Console.Write("{0}{1}", mySeparator, myArr[i]);
         Console.WriteLine();
     }
 
 }
+
+
 /* 
 This code produces the following output.
 
-Initially,
-   Count    : 5
-   Capacity : 16
-   Values:    The    quick    brown    fox    jumps
-After TrimToSize,
-   Count    : 5
-   Capacity : 5
-   Values:    The    quick    brown    fox    jumps
-After Clear,
-   Count    : 0
-   Capacity : 5
-   Values:
-After the second TrimToSize,
-   Count    : 0
-   Capacity : 16
-   Values:
+The target Array contains the following (before and after copying):
+ The quick brown fox jumps over the lazy dog
+ The quick brown fox jumps over the napping dog
+ The quick brown fox jumps over three napping cats in the barn
+ three napping cats in the barn three napping cats in the barn
 */
