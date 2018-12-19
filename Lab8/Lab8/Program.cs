@@ -1,19 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Collections;
-
-namespace HashTableDemo
+namespace week8
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Hashtable c = new Hashtable();
-            c.Add("72000", "suphan");
+            string[][] md = new string[2][];
+            md [0] = new string[] {"sunday","monday","tuesday","wednesday","thursday","friday","saturday"};
+            md[1] = new string[] {"January", "February", "March", "April", "May", "June", "July", "August", "September	", "October", "November	", "December" };
 
+            for (int row = 0; row < md.Length; row++)
+            {
+                for (int col = 0; col < md[row].Length; col++)
 
-            Console.WriteLine("pls input num: ");
-            Console.WriteLine("" + c.ContainsKey(Console.ReadLine()));
-            Console.ReadLine();
+                    Console.Write(md[row][col] + " ");
+                Console.WriteLine();
+            }
         }
     }
 }
